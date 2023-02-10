@@ -1,6 +1,6 @@
 ﻿Console.Write("Введите номер дня недели: ");
 int weekNumber = Convert.ToInt32(Console.ReadLine());
-string nameOfTheDay;
+string nameOfTheDay = "Monday";
 
 switch (weekNumber)
 {
@@ -29,3 +29,4 @@ switch (weekNumber)
     Console.WriteLine("В неделе только семь дней");
     break;
 }
+    Console.WriteLine(nameOfTheDay);
