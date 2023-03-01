@@ -6,55 +6,40 @@
 
 Console.Clear();
 
-int number = PutNumber();
+int numberFromConsole = PutNumber("Введите число для преобразования : ");
 
-PrintArray1(Fillarray(Count(number), number));
+PrintArray(Fillarray(ArrayLength(numberFromConsole), numberFromConsole));
 
-int PutNumber()
+int PutNumber(string greeting)
 {
-  // System.Console.Write(greeting);
-  int number = Convert.ToInt32(Console.ReadLine());
-  return number;
+  System.Console.Write(greeting);
+  int numberFromConsole = Convert.ToInt32(Console.ReadLine());
+  return numberFromConsole;
 }
 
-int Count(int number)
+int ArrayLength(int numberFromConsole)
 {
   int count = 0;
-  for (int i = 0; number > 0; i++)
+  for (int i = 0; numberFromConsole > 0; i++)
   {
-    number /= 2;
+    numberFromConsole /= 2;
     count++;
   }
   return count;
 }
 
-int[] Fillarray(int count, int number)
+int[] Fillarray(int length, int numberFromConsole)
 {
-  int[] array = new int[count];
+  int[] array = new int[length];
   for (int i = 0; i < array.Length; i++)
   {
-    array[count - 1 - i] = number % 2;
-    number /= 2;
+    array[length - i - 1] = numberFromConsole % 2;
+    numberFromConsole /= 2;
   }
   return array;
 }
 
 void PrintArray(int[] array)
 {
-  System.Console.WriteLine(string.Join(" ", array));
-}
-
-void PrintArray1(int[] array)
-{
   System.Console.WriteLine(string.Join("", array));
-}
-
-int[] ReversArray(int[] array)
-{
-  int[] arrayTwo = new int[array.Length];
-  for (int i = 0; i < array.Length; i++)
-  {
-    arrayTwo[i] = array[array.Length - i - 1];
-  }
-  return arrayTwo;
 }
