@@ -7,20 +7,29 @@
 
 Console.Clear();
 
-Fibonachi(PutNumber("Введите число : "));
+ReadArray(Fibonachi(PutNumber("Введите число : ")));
 
 int PutNumber(string greeting)
 {
-    System.Console.Write(greeting);
-    int numberFromConsole = Convert.ToInt32(Console.ReadLine());
-    return numberFromConsole;
+  System.Console.Write(greeting);
+  int numberFromConsole = Convert.ToInt32(Console.ReadLine());
+  return numberFromConsole;
 }
 
-void Fibonachi(int numberFromConsole)
+int[] Fibonachi(int numberFromConsole)
 {
-    int number = 0;
-    for (int i = 0; i < numberFromConsole; i++)
-    {
-        
-    }
+  int[] fibArray = new int[numberFromConsole];
+  fibArray[0] = 0;
+  fibArray[1] = 1;
+  for (int i = 2; i < (numberFromConsole); i++)
+  {
+    fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
+  }
+  return fibArray;
+}
+
+void ReadArray(int[] array)
+{
+  string fibonachi = string.Join(" ", array);
+  System.Console.WriteLine(fibonachi);
 }
